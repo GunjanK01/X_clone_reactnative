@@ -6,8 +6,6 @@ const app = express();
 
 app.get("/", (req, res) => res.send("Konichiwa watashiwa server desu!"));
 
-
-// this function help with lil better optimize and cleaner code
 const startServer = async () => {
   try {
     await connectDB();
@@ -23,3 +21,4 @@ const startServer = async () => {
 };
 
 startServer();
+// this function help with lil better optimize and cleaner code
