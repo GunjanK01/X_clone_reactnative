@@ -7,8 +7,6 @@ const app = express();
 app.get("/", (req, res) => res.send("Konichiwa watashiwa server desu!"));
 
 
-// app.listen(ENV.PORT, () => console.log("Server is up and running on port:", ENV.PORT));
-
 // this function help with lil better optimize and cleaner code
 const startServer = async () => {
   try {
