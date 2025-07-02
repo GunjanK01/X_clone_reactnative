@@ -4,8 +4,21 @@ import {connectDB} from "./config/db.js";
 
 const app = express();
 
-connectDB();
 app.get("/", (req, res) => res.send("Konichiwa watashiwa server desu!"));
 
+const startServer = async () => {
+  try {
+    await connectDB();
 
-app.listen(ENV.PORT, () => console.log("Server is up and running on port:", ENV.PORT));
+    // listen for local development
+    if (ENV.NODE_ENV !== "production") {
+      app.listen(ENV.PORT, () => console.log("Server is up and running on PORT:", ENV.PORT));
+    }
+  } catch (error) {
+    console.error("Failed to start server:", error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
+// this function help with lil better optimize and cleaner code
