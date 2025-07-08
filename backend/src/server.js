@@ -36,7 +36,7 @@ const startServer = async () => {
   try {
     await connectDB();
 
-    // listen for local development
+    // listen for local development not in production
     if (ENV.NODE_ENV !== "production") {
       app.listen(ENV.PORT, () => console.log("Server is up and running on PORT:", ENV.PORT));
     }
@@ -48,3 +48,6 @@ const startServer = async () => {
 
 startServer();
 // this function help with lil better optimize and cleaner code
+
+//this one is for vercel
+export default app;
